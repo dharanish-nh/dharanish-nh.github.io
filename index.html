@@ -3,123 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dharanish NH Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Dharanish NH - Robotics & Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1>Dharanish NH</h1>
-            <p class="contact-info">+31 0617674020 - <a href="mailto:n.h.dharnish1996@gmail.com">n.h.dharnish1996@gmail.com</a></p>
-            <p class="social-links">
-                <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/dharanish-nh" target="_blank">GitHub</a>
-            </p>
-        </div>
-    </header>
     <nav class="navbar">
         <div class="container">
-            <ul>
+            <div class="nav-brand">
+                <h2>Dharanish NH</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Technical Skills</a></li>
-                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#languages">Languages</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
-    <main class="main-content">
+
+    <header class="hero">
         <div class="container">
-            <section id="education">
-                <h2>Education</h2>
-                <div class="edu-item">
-                    <h3>University of Twente, Enschede, Netherlands</h3>
-                    <p>MS in Electrical Engineering (Robotics and Mechatronics) 2019 - 2023</p>
+            <div class="hero-content">
+                <h1>Dharanish NH</h1>
+                <p class="hero-subtitle">Robotics & Software Engineer</p>
+                <p class="hero-description">MS in Electrical Engineering (Robotics and Mechatronics) with expertise in autonomous navigation, computer vision, and robotics development</p>
+                <div class="hero-contact">
+                    <a href="tel:+310617674020" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +31 0617674020
+                    </a>
+                    <a href="mailto:n.h.dharnish1996@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        n.h.dharnish1996@gmail.com
+                    </a>
                 </div>
-                <div class="edu-item">
-                    <h3>Maharaja Institute of Technology (VTU), Mysore, India</h3>
-                    <p>BE in Electronics and Communication Engineering 2014 - 2018</p>
+                <div class="hero-links">
+                    <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/dharanish-nh" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
                 </div>
-            </section>
-            <section id="skills">
-                <h2>Technical Skills</h2>
-                <ul>
-                    <li>Python, C++</li>
-                    <li>OpenCV, YOLO, SSD, ROS/ROS2, Git, Docker, PyQt, Arduino, RaspberryPi, Matlab</li>
-                </ul>
-            </section>
-            <section id="experience">
-                <h2>Work Experience</h2>
-                <div class="experience-item">
-                    <h3>Graduate Research Intern at Heemskerk Innovative Technology, Delft, Netherlands</h3>
-                    <p>April 2021 - October 2023</p>
-                    <ul>
-                        <li>Graduation thesis focused on enhancing the autonomous navigation of a care robot.</li>
-                        <li>Enhanced autonomous navigation capabilities by programming the robot to adhere to social norms.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Robotics Intern at Aziobot, Netherlands</h3>
-                    <p>September 2020 - December 2020</p>
-                    <ul>
-                        <li>Designed and implemented a dynamic obstacle detection and avoidance method for an autonomous floor-scrubbing robot.</li>
-                        <li>Developed people tracking and evaluated its performance under diverse environmental conditions.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Product Developer at Svachallan, Mysore, India</h3>
-                    <p>January 2019 - June 2019</p>
-                    <ul>
-                        <li>Designed and implemented projects leveraging Arduino, Raspberry Pi, IoT, and MSP430 technologies.</li>
-                        <li>Served as a mentor for undergraduate students, providing guidance and support in their academic projects.</li>
-                    </ul>
-                </div>
-            </section>
-            <section id="projects">
-                <h2>Projects</h2>
-                <div class="project-item">
-                    <h3>Improving Autonomous Navigation of Care Robot</h3>
-                    <ul>
-                        <li>Developed an autonomous navigation method for the care robot (ROSE) in dynamic indoor environments, ensuring adherence to social norms and respecting the proxemics of individuals.</li>
-                        <li>Conducted a comparative analysis of the performance against default navigation using subjective and objective metrics.</li>
-                        <li>Demonstrated that the improved navigation resulted in enhanced social acceptance.</li>
-                    </ul>
-                </div>
-                <div class="project-item">
-                    <h3>Dynamic Obstacle Detection and Avoidance</h3>
-                    <ul>
-                        <li>Analyzed various human detection methods for an autonomous floor-scrubbing robot.</li>
-                        <li>Designed, implemented, and tested human tracking algorithm in different lighting and occlusion scenarios utilizing an RGBD camera.</li>
-                        <li>Deployed the project on Nvidia Jetson for real-time processing and execution.</li>
-                    </ul>
-                </div>
-                <div class="project-item">
-                    <h3>Product Development</h3>
-                    <ul>
-                        <li>Led the development of diverse robots (Painting, Surgical, Sorting) and IoT projects (Health Monitor, Construction Helmet, Smart Railways).</li>
-                        <li>Utilized Arduino, MSP430, and Raspberry Pi boards for project implementation.</li>
-                    </ul>
-                </div>
-            </section>
-            <section id="languages">
-                <h2>Languages</h2>
-                <ul>
-                    <li>English (Professional)</li>
-                    <li>Dutch (Basic)</li>
-                    <li>German (Basic)</li>
-                    <li>Kannada (Native)</li>
-                </ul>
-            </section>
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>Feel free to reach out via <a href="mailto:n.h.dharnish1996@gmail.com">email</a> or connect on <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank">LinkedIn</a>.</p>
-            </section>
+            </div>
         </div>
+    </header>
+
+    <main class="main-content">
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>Passionate robotics and software engineer with extensive experience in autonomous navigation, computer vision, and mechatronics. Currently pursuing MS in Electrical Engineering with a focus on Robotics and Mechatronics at the University of Twente, Netherlands.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>University of Twente</h3>
+                            <h4>MS in Electrical Engineering (Robotics and Mechatronics)</h4>
+                            <div class="timeline-meta">
+                                <span class="location">Enschede, Netherlands</span>
+                                <span class="date">2019 - 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Maharaja Institute of Technology (VTU)</h3>
+                            <h4>BE in Electronics and Communication Engineering</h4>
+                            <div class="timeline-meta">
+                                <span class="location">Mysore, India</span>
+                                <span class="date">2014 - 2018</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Graduate Research Intern</h3>
+                            <h4>Heemskerk Innovative Technology, Delft, Netherlands</h4>
+                            <div class="timeline-meta">
+                                <span class="date">April 2021 - October 2023</span>
+                            </div>
+                            <ul>
+                                <li>Graduation thesis focused on enhancing the autonomous navigation of a care robot</li>
+                                <li>Enhanced autonomous navigation capabilities by programming the robot to adhere to social norms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Robotics Intern</h3>
+                            <h4>Aziobot, Netherlands</h4>
+                            <div class="timeline-meta">
+                                <span class="date">September 2020 - December 2020</span>
+                            </div>
+                            <ul>
+                                <li>Designed and implemented a dynamic obstacle detection and avoidance method for an autonomous floor scrubbing robot</li>
+                                <li>Developed people tracking and evaluated its performance under diverse environmental conditions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Product Developer</h3>
+                            <h4>Svachallan, Mysore, India</h4>
+                            <div class="timeline-meta">
+                                <span class="date">January 2019 - June 2019</span>
+                            </div>
+                            <ul>
+                                <li>Designed and implemented projects leveraging Arduino, Raspberry Pi, IoT, and MSP430 technologies</li>
+                                <li>Served as a mentor for undergraduate students, providing guidance and support in their academic projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Improving Autonomous Navigation of Care Robot</h3>
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <ul>
+                            <li>Developed an autonomous navigation method for the care robot (ROSE) in dynamic indoor environments, ensuring adherence to social norms and respecting the proxemics of individuals</li>
+                            <li>Conducted a comparative analysis of the performance against default navigation using subjective and objective metrics</li>
+                            <li>Demonstrated that the improved navigation resulted in enhanced social acceptance</li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Dynamic Obstacle Detection and Avoidance</h3>
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <ul>
+                            <li>Analyzed various human detection methods for an autonomous floor-scrubbing robot</li>
+                            <li>Designed, implemented and tested human tracking algorithm in different lighting and occlusion scenarios utilizing an RGBD camera</li>
+                            <li>Deployed the project on Nvidia Jetson for real-time processing and execution</li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Product Development</h3>
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <ul>
+                            <li>Led the development of diverse robots (Painting, Surgical, Sorting) and IoT projects (Health Monitor, Construction Helmet, Smart Railways)</li>
+                            <li>Utilized Arduino, MSP430, and Raspberry Pi boards for project implementation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Libraries and Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">YOLO</span>
+                            <span class="skill-tag">SSD</span>
+                            <span class="skill-tag">ROS/ROS2</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">PyQt</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">Raspberry Pi</span>
+                            <span class="skill-tag">Matlab</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">English (Professional)</span>
+                            <span class="skill-tag">Dutch (Basic)</span>
+                            <span class="skill-tag">German (Basic)</span>
+                            <span class="skill-tag">Kannada (Native)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>Feel free to reach out for collaboration opportunities or just to connect!</p>
+                    <div class="contact-methods">
+                        <a href="mailto:n.h.dharnish1996@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Me</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank" class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/dharanish-nh" target="_blank" class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
-        <p>&copy; 2024 Dharanish NH. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Dharanish NH. All rights reserved.</p>
+        </div>
     </footer>
-    <script src="js/script.js"></script>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
