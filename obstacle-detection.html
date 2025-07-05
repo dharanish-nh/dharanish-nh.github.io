@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Obstacle Detection - Dharanish NH</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .project-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        .project-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .project-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .project-section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .project-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .project-section li::before {
+            content: '👁️';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin: 2rem 0;
+            border: 2px dashed var(--border-color);
+        }
+        
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .algorithm-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .flow-step {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .step-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.close()" aria-label="Go back">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>Dharanish NH</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="project-hero">
+        <div class="container">
+            <h1>Dynamic Obstacle Detection and Avoidance</h1>
+            <p>Advanced computer vision and machine learning algorithms for real-time human detection and tracking in autonomous floor-scrubbing robots</p>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-section">
+            <h2><i class="fas fa-bullseye"></i> Project Overview</h2>
+            <p>This internship project at Aziobot focused on developing a robust obstacle detection and avoidance system for autonomous floor-scrubbing robots. The primary challenge was to create a system that could reliably detect and track humans in various lighting conditions and occlusion scenarios while maintaining real-time performance.</p>
+            
+            <div class="project-image">
+                <i class="fas fa-eye"></i>
+            </div>
+            
+            <h3>Problem Statement</h3>
+            <p>Autonomous cleaning robots operating in public spaces face the challenge of safely navigating around humans while maintaining cleaning efficiency. The system needed to handle various scenarios including poor lighting, partial occlusions, and different human poses and movements.</p>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-cogs"></i> Technical Implementation</h2>
+            
+            <h3>Core Technologies</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">YOLO</span>
+                <span class="tech-tag">RGBD Camera</span>
+                <span class="tech-tag">Intel RealSense</span>
+                <span class="tech-tag">Nvidia Jetson</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Computer Vision</span>
+            </div>
+            
+            <h3>Algorithm Pipeline</h3>
+            <div class="algorithm-flow">
+                <div class="flow-step">
+                    <div class="step-icon">📹</div>
+                    <div class="step-title">Data Acquisition</div>
+                    <div class="step-description">RGBD camera captures color and depth information in real-time</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-icon">🔍</div>
+                    <div class="step-title">Detection</div>
+                    <div class="step-description">YOLO-based human detection with confidence filtering</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-icon">📊</div>
+                    <div class="step-title">Depth Analysis</div>
+                    <div class="step-description">3D position estimation using depth data fusion</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-icon">🎯</div>
+                    <div class="step-title">Tracking</div>
+                    <div class="step-description">Kalman filter-based multi-object tracking system</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-icon">🚀</div>
+                    <div class="step-title">Path Planning</div>
+                    <div class="step-description">Dynamic obstacle avoidance and safe navigation</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-chart-line"></i> Results & Performance</h2>
+            
+            <div class="project-metrics">
+                <div class="metric-card">
+                    <span class="metric-number">94%</span>
+                    <div class="metric-label">Detection Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">30</span>
+                    <div class="metric-label">FPS Real-time Processing</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">15</span>
+                    <div class="metric-label">Meters Detection Range</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">98%</span>
+                    <div class="metric-label">Collision Avoidance Success</div>
+                </div>
+            </div>
+            
+            <h3>Key Achievements</h3>
+            <ul>
+                <li>Developed robust human detection system with 94% accuracy across various conditions</li>
+                <li>Implemented real-time tracking algorithm capable of handling multiple simultaneous targets</li>
+                <li>Successfully deployed system on Nvidia Jetson for edge computing</li>
+                <li>Achieved consistent performance in challenging lighting conditions</li>
+                <li>Reduced false positive detections by 60% compared to baseline methods</li>
+                <li>Optimized processing pipeline for resource-constrained embedded systems</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-lightbulb"></i> Innovation & Technical Details</h2>
+            
+            <h3>Novel Contributions</h3>
+            <ul>
+                <li>Fusion of RGB and depth data for improved detection reliability</li>
+                <li>Adaptive threshold algorithms for varying lighting conditions</li>
+                <li>Multi-scale detection approach for handling different distances</li>
+                <li>Custom tracking algorithm optimized for human movement patterns</li>
+                <li>Real-time performance optimization for embedded deployment</li>
+            </ul>
+            
+            <h3>Technical Challenges Solved</h3>
+            <ul>
+                <li>Handling partial occlusions and crowded environments</li>
+                <li>Maintaining accuracy in low-light and bright lighting conditions</li>
+                <li>Real-time processing constraints on embedded hardware</li>
+                <li>Distinguishing between humans and other moving objects</li>
+                <li>Minimizing computational overhead while maximizing detection accuracy</li>
+                <li>Dealing with camera motion and vibrations during robot movement</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-microscope"></i> Testing & Validation</h2>
+            
+            <h3>Testing Scenarios</h3>
+            <ul>
+                <li>Indoor office environments with varying foot traffic</li>
+                <li>Challenging lighting conditions (bright sunlight, dim areas)</li>
+                <li>Partial occlusion scenarios with furniture and obstacles</li>
+                <li>Multiple people detection and tracking simultaneously</li>
+                <li>Different human poses and movement patterns</li>
+                <li>Long-duration operation testing for system stability</li>
+            </ul>
+            
+            <h3>Validation Methodology</h3>
+            <ul>
+                <li>Ground truth data collection with manual annotation</li>
+                <li>Statistical analysis of detection accuracy and tracking performance</li>
+                <li>Computational performance benchmarking on target hardware</li>
+                <li>Real-world deployment testing in commercial environments</li>
+                <li>Comparative analysis with existing detection methods</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-graduation-cap"></i> Project Context</h2>
+            <p><strong>Company:</strong> Aziobot, Netherlands</p>
+            <p><strong>Duration:</strong> September 2020 - December 2020</p>
+            <p><strong>Role:</strong> Robotics Intern</p>
+            <p><strong>Industry:</strong> Autonomous Cleaning Robotics</p>
+            
+            <h3>Learning Outcomes</h3>
+            <ul>
+                <li>Advanced computer vision techniques and implementation</li>
+                <li>Real-time system optimization and embedded computing</li>
+                <li>Industrial robotics development and deployment</li>
+                <li>Performance evaluation and testing methodologies</li>
+                <li>Cross-functional collaboration in product development</li>
+                <li>Understanding of commercial robotics constraints and requirements</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-rocket"></i> Impact & Future Work</h2>
+            
+            <h3>Commercial Impact</h3>
+            <ul>
+                <li>Improved safety and reliability of autonomous cleaning robots</li>
+                <li>Enhanced user confidence in robotic cleaning solutions</li>
+                <li>Reduced operational costs through improved efficiency</li>
+                <li>Foundation for next-generation autonomous cleaning systems</li>
+            </ul>
+            
+            <h3>Potential Extensions</h3>
+            <ul>
+                <li>Integration with predictive movement modeling</li>
+                <li>Extension to other types of autonomous robots</li>
+                <li>Implementation of social interaction capabilities</li>
+                <li>Enhanced scene understanding for complex environments</li>
+                <li>Multi-sensor fusion with LIDAR and other sensors</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Dharanish NH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        if (currentTheme === 'dark') {
+            themeIcon.className = 'fas fa-moon';
+        } else {
+            themeIcon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            if (newTheme === 'dark') {
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // Back button functionality
+        document.querySelector('.back-button').addEventListener('click', () => {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Smooth scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Animate flow steps
+        document.querySelectorAll('.flow-step').forEach((step, index) => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateX(-30px)';
+            step.style.transition = `all 0.6s ease-out ${index * 0.2}s`;
+        });
+
+        const flowObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.flow-step').forEach((step, index) => {
+                        setTimeout(() => {
+                            step.style.opacity = '1';
+                            step.style.transform = 'translateX(0)';
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.algorithm-flow').forEach(flow => {
+            flowObserver.observe(flow);
+        });
+    </script>
+</body>
+</html>

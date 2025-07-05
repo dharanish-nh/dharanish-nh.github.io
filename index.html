@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Scrolling Robot -->
+    <div class="scroll-robot" id="scrollRobot"></div>
+
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
@@ -149,7 +157,7 @@
             <div class="container">
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('care-robot-navigation.html', '_blank')">
                         <div class="project-header">
                             <h3>Improving Autonomous Navigation of Care Robot</h3>
                             <i class="fas fa-robot"></i>
@@ -159,8 +167,9 @@
                             <li>Conducted a comparative analysis of the performance against default navigation using subjective and objective metrics</li>
                             <li>Demonstrated that the improved navigation resulted in enhanced social acceptance</li>
                         </ul>
+                        <a href="care-robot-navigation.html" class="project-link">View Details</a>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('obstacle-detection.html', '_blank')">
                         <div class="project-header">
                             <h3>Dynamic Obstacle Detection and Avoidance</h3>
                             <i class="fas fa-eye"></i>
@@ -170,8 +179,9 @@
                             <li>Designed, implemented and tested human tracking algorithm in different lighting and occlusion scenarios utilizing an RGBD camera</li>
                             <li>Deployed the project on Nvidia Jetson for real-time processing and execution</li>
                         </ul>
+                        <a href="obstacle-detection.html" class="project-link">View Details</a>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('product-development.html', '_blank')">
                         <div class="project-header">
                             <h3>Product Development</h3>
                             <i class="fas fa-cogs"></i>
@@ -180,6 +190,7 @@
                             <li>Led the development of diverse robots (Painting, Surgical, Sorting) and IoT projects (Health Monitor, Construction Helmet, Smart Railways)</li>
                             <li>Utilized Arduino, MSP430, and Raspberry Pi boards for project implementation</li>
                         </ul>
+                        <a href="product-development.html" class="project-link">View Details</a>
                     </div>
                 </div>
             </div>
@@ -255,6 +266,82 @@
     </footer>
 
     <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        if (currentTheme === 'dark') {
+            themeIcon.className = 'fas fa-moon';
+        } else {
+            themeIcon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            if (newTheme === 'dark') {
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // Scrolling robot animation
+        const scrollRobot = document.getElementById('scrollRobot');
+        const sections = document.querySelectorAll('.section');
+        
+        function updateRobotPosition() {
+            const scrolled = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show robot after scrolling past hero
+            if (scrolled > windowHeight * 0.3) {
+                scrollRobot.classList.add('visible');
+            } else {
+                scrollRobot.classList.remove('visible');
+            }
+            
+            // Position robot based on current section
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionBottom = sectionTop + sectionHeight;
+                
+                if (scrolled >= sectionTop - windowHeight * 0.5 && scrolled < sectionBottom) {
+                    const progress = (scrolled - sectionTop + windowHeight * 0.5) / (sectionHeight + windowHeight * 0.5);
+                    const robotY = sectionTop + (sectionHeight * progress) - windowHeight * 0.1;
+                    scrollRobot.style.top = `${Math.max(100, Math.min(robotY, documentHeight - 100))}px`;
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateRobotPosition);
+        
+        // Robot click functionality - scroll to next section
+        scrollRobot.addEventListener('click', () => {
+            const currentScroll = window.pageYOffset;
+            const nextSection = Array.from(sections).find(section => 
+                section.offsetTop > currentScroll + 100
+            );
+            
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -333,7 +420,7 @@
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
             if (hero) {
-                const rate = scrolled * -0.5;
+                const rate = scrolled * -0.1;
                 hero.style.transform = `translateY(${rate}px)`;
             }
         });
@@ -346,49 +433,15 @@
             });
         });
 
-        // Create floating particles effect
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'floating-particle';
-            particle.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: rgba(37, 99, 235, 0.3);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 1;
-                animation: floatUp 4s linear forwards;
-            `;
-            
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.top = window.innerHeight + 'px';
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 4000);
-        }
-
-        // Add floating particles animation keyframes
+        // Float animation keyframes
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes floatUp {
-                to {
-                    transform: translateY(-${window.innerHeight + 100}px) translateX(${Math.random() * 200 - 100}px);
-                    opacity: 0;
-                }
-            }
             @keyframes float {
                 0%, 100% { transform: translateY(0px); }
                 50% { transform: translateY(-10px); }
             }
         `;
         document.head.appendChild(style);
-
-        // Generate particles every 2 seconds
-        setInterval(createParticle, 2000);
 
         // Add reveal animation to elements on scroll
         const revealElements = document.querySelectorAll('.timeline-item, .project-card, .skill-category');
@@ -425,10 +478,15 @@
             function updateNavbar() {
                 const navbar = document.querySelector('.navbar');
                 const scrolled = window.scrollY;
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
                 
                 if (navbar) {
                     const opacity = Math.min(scrolled / 100, 0.95);
-                    navbar.style.background = `rgba(255, 255, 255, ${opacity})`;
+                    if (isDark) {
+                        navbar.style.background = `rgba(15, 23, 42, ${opacity})`;
+                    } else {
+                        navbar.style.background = `rgba(255, 255, 255, ${opacity})`;
+                    }
                     navbar.style.backdropFilter = `blur(${opacity * 10}px)`;
                 }
                 
@@ -459,6 +517,13 @@
                     firstSection.classList.add('animate-in');
                 }
             }, 500);
+        });
+
+        // Project card click prevention for links
+        document.querySelectorAll('.project-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
         });
     </script>
 </body>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Development Projects - Dharanish NH</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .project-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        .project-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .project-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .project-section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .project-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .project-section li::before {
+            content: '⚙️';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin: 2rem 0;
+            border: 2px dashed var(--border-color);
+        }
+        
+        .projects-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .showcase-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .showcase-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .showcase-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .showcase-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        
+        .timeline-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .skills-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .skill-item {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.close()" aria-label="Go back">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>Dharanish NH</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="project-hero">
+        <div class="container">
+            <h1>Product Development Portfolio</h1>
+            <p>Comprehensive robotics and IoT projects spanning autonomous systems, health monitoring, industrial automation, and smart infrastructure solutions</p>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-section">
+            <h2><i class="fas fa-bullseye"></i> Project Overview</h2>
+            <p>During my tenure as a Product Developer at Svachallan, I led the development of diverse robotics and IoT projects that addressed real-world challenges across multiple industries. This role involved complete product lifecycle management from concept to deployment, mentoring undergraduate students, and driving innovation in embedded systems and automation.</p>
+            
+            <div class="project-image">
+                <i class="fas fa-cogs"></i>
+            </div>
+            
+            <h3>Role & Responsibilities</h3>
+            <ul>
+                <li>Lead product development from ideation to market-ready prototypes</li>
+                <li>Design and implement embedded systems using microcontroller platforms</li>
+                <li>Develop IoT solutions with cloud connectivity and data analytics</li>
+                <li>Mentor undergraduate students in engineering projects and best practices</li>
+                <li>Collaborate with cross-functional teams for integrated product solutions</li>
+                <li>Conduct feasibility studies and technical documentation</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-robot"></i> Robotics Projects</h2>
+            
+            <div class="projects-showcase">
+                <div class="showcase-card">
+                    <div class="showcase-icon">🎨</div>
+                    <div class="showcase-title">Autonomous Painting Robot</div>
+                    <div class="showcase-description">Developed a robotic system capable of automated painting tasks with precision control, computer vision guidance, and adaptive paint application algorithms.</div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-icon">🏥</div>
+                    <div class="showcase-title">Surgical Assistance Robot</div>
+                    <div class="showcase-description">Designed a medical robot prototype for surgical assistance with high-precision manipulation, sterile operation protocols, and real-time monitoring capabilities.</div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-icon">📦</div>
+                    <div class="showcase-title">Intelligent Sorting System</div>
+                    <div class="showcase-description">Created an automated sorting robot using machine learning for object classification, conveyor integration, and quality control mechanisms.</div>
+                </div>
+            </div>
+            
+            <h3>Core Technologies Used</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">MSP430</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">Servo Control</span>
+                <span class="tech-tag">Sensor Fusion</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Real-time Systems</span>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-wifi"></i> IoT Solutions</h2>
+            
+            <div class="projects-showcase">
+                <div class="showcase-card">
+                    <div class="showcase-icon">❤️</div>
+                    <div class="showcase-title">Health Monitoring System</div>
+                    <div class="showcase-description">Developed a comprehensive health monitoring solution with wearable sensors, real-time data transmission, and predictive health analytics.</div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-icon">👷</div>
+                    <div class="showcase-title">Smart Construction Helmet</div>
+                    <div class="showcase-description">Engineered an intelligent safety helmet with environmental monitoring, collision detection, and emergency alert systems for construction workers.</div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-icon">🚊</div>
+                    <div class="showcase-title">Smart Railway Infrastructure</div>
+                    <div class="showcase-description">Created IoT-enabled railway monitoring system for track condition assessment, predictive maintenance, and safety protocol automation.</div>
+                </div>
+            </div>
+            
+            <h3>IoT Architecture Features</h3>
+            <ul>
+                <li>Edge computing capabilities for real-time data processing</li>
+                <li>Cloud connectivity with secure data transmission protocols</li>
+                <li>Mobile application interfaces for remote monitoring and control</li>
+                <li>Machine learning algorithms for predictive analytics</li>
+                <li>Low-power design for extended battery life</li>
+                <li>Scalable architecture for enterprise deployment</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-tools"></i> Technical Implementation</h2>
+            
+            <h3>Development Process</h3>
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="timeline-content">
+                    <h4>Conceptualization & Requirements</h4>
+                    <p>Market research, stakeholder interviews, and technical feasibility analysis to define project scope and requirements</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-drafting-compass"></i></div>
+                <div class="timeline-content">
+                    <h4>System Design & Architecture</h4>
+                    <p>Hardware selection, software architecture design, and system integration planning with detailed technical specifications</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-code"></i></div>
+                <div class="timeline-content">
+                    <h4>Development & Integration</h4>
+                    <p>Firmware development, hardware assembly, software integration, and communication protocol implementation</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-vial"></i></div>
+                <div class="timeline-content">
+                    <h4>Testing & Validation</h4>
+                    <p>Comprehensive testing protocols, performance validation, safety compliance verification, and user acceptance testing</p>
+                </div>
+            </div>
+            
+            <h3>Technical Skills Applied</h3>
+            <div class="skills-matrix">
+                <div class="skill-item">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-name">Embedded Programming</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-name">Hardware Integration</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📡</div>
+                    <div class="skill-name">Wireless Communication</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">Data Analytics</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔒</div>
+                    <div class="skill-name">Security Protocols</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📱</div>
+                    <div class="skill-name">Mobile Development</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-graduation-cap"></i> Mentorship & Leadership</h2>
+            
+            <h3>Student Mentorship Program</h3>
+            <ul>
+                <li>Guided 15+ undergraduate students through complex engineering projects</li>
+                <li>Developed structured learning modules for embedded systems and robotics</li>
+                <li>Conducted regular workshops on industry best practices and emerging technologies</li>
+                <li>Provided career guidance and technical skill development support</li>
+                <li>Established project evaluation frameworks and milestone tracking systems</li>
+            </ul>
+            
+            <h3>Knowledge Transfer Initiatives</h3>
+            <ul>
+                <li>Created comprehensive documentation and technical guides</li>
+                <li>Organized hands-on training sessions for new technologies</li>
+                <li>Developed prototype demonstrations for educational purposes</li>
+                <li>Facilitated cross-team collaboration and knowledge sharing sessions</li>
+                <li>Established coding standards and development best practices</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-chart-line"></i> Impact & Results</h2>
+            
+            <h3>Project Outcomes</h3>
+            <ul>
+                <li>Successfully delivered 8+ complete product prototypes ready for commercialization</li>
+                <li>Achieved 95% project completion rate within specified timelines</li>
+                <li>Reduced development costs by 30% through efficient resource utilization</li>
+                <li>Improved student technical competency by 40% through mentorship programs</li>
+                <li>Generated 3 patent-pending innovations in robotics and IoT domains</li>
+                <li>Established partnerships with 5+ local industries for product deployment</li>
+            </ul>
+            
+            <h3>Technical Achievements</h3>
+            <ul>
+                <li>Developed modular architecture enabling 60% code reusability across projects</li>
+                <li>Implemented real-time systems with sub-millisecond response times</li>
+                <li>Achieved 99.5% uptime for deployed IoT monitoring systems</li>
+                <li>Optimized power consumption resulting in 50% longer battery life</li>
+                <li>Created scalable cloud architecture supporting 1000+ concurrent devices</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2><i class="fas fa-building"></i> Professional Context</h2>
+            <p><strong>Company:</strong> Svachallan, Mysore, India</p>
+            <p><strong>Duration:</strong> January 2019 - June 2019</p>
+            <p><strong>Role:</strong> Product Developer</p>
+            <p><strong>Industry:</strong> Embedded Systems & IoT Solutions</p>
+            
+            <h3>Key Responsibilities</h3>
+            <ul>
+                <li>Lead multidisciplinary product development teams</li>
+                <li>Define technical specifications and project roadmaps</li>
+                <li>Manage project timelines, budgets, and resource allocation</li>
+                <li>Conduct market research and competitive analysis</li>
+                <li>Interface with clients for requirement gathering and project updates</li>
+                <li>Ensure quality assurance and compliance with industry standards</li>
+            </ul>
+            
+            <h3>Professional Growth</h3>
+            <ul>
+                <li>Enhanced leadership skills through team management and mentorship</li>
+                <li>Developed expertise in full-stack IoT and robotics development</li>
+                <li>Gained experience in commercial product development lifecycle</li>
+                <li>Strengthened project management and client communication skills</li>
+                <li>Built network of industry contacts and potential collaborators</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Dharanish NH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        if (currentTheme === 'dark') {
+            themeIcon.className = 'fas fa-moon';
+        } else {
+            themeIcon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            if (newTheme === 'dark') {
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // Back button functionality
+        document.querySelector('.back-button').addEventListener('click', () => {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Smooth scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Animate showcase cards
+        document.querySelectorAll('.showcase-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        });
+
+        const showcaseObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.showcase-card').forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.projects-showcase').forEach(showcase => {
+            showcaseObserver.observe(showcase);
+        });
+
+        // Animate timeline items
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = `all 0.6s ease-out ${index * 0.2}s`;
+        });
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            timelineObserver.observe(item);
+        });
+    </script>
+</body>
+</html>

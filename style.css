@@ -1,4 +1,4 @@
-/* ===== CSS Variables ===== */
+/* ===== CSS Variables for Light/Dark Mode ===== */
 :root {
     --primary-color: #2563eb;
     --primary-dark: #1d4ed8;
@@ -16,6 +16,24 @@
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --border-radius: 0.5rem;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary-color: #94a3b8;
+    --accent-color: #fbbf24;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-light: #94a3b8;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --border-color: #334155;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
 }
 
 /* ===== Base Styles ===== */
@@ -36,6 +54,7 @@ body {
     background-color: var(--bg-primary);
     font-size: 16px;
     overflow-x: hidden;
+    transition: var(--transition);
 }
 
 .container {
@@ -44,24 +63,75 @@ body {
     padding: 0 1rem;
 }
 
-/* ===== Animated Background Particles ===== */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-    animation: floatParticles 20s linear infinite;
-    z-index: 0;
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 1001;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
-@keyframes floatParticles {
-    0% { transform: translateY(0px) translateX(0px); }
-    33% { transform: translateY(-10px) translateX(5px); }
-    66% { transform: translateY(5px) translateX(-5px); }
-    100% { transform: translateY(0px) translateX(0px); }
+.theme-toggle:hover {
+    background: var(--primary-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.theme-toggle i {
+    transition: var(--transition);
+}
+
+/* ===== Scrolling Robot Animation ===== */
+.scroll-robot {
+    position: fixed;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 12px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.scroll-robot.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-robot::before {
+    content: '🤖';
+    font-size: 1.5rem;
+    animation: robotBounce 2s ease-in-out infinite;
+}
+
+@keyframes robotBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.scroll-robot:hover {
+    transform: translateX(0) scale(1.1);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
 }
 
 /* ===== Navigation with Slide-In Animation ===== */
@@ -76,6 +146,11 @@ body {
     background: rgba(255, 255, 255, 0.95);
     transform: translateY(-100%);
     animation: slideDown 0.8s ease-out 0.2s forwards;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.95);
 }
 
 @keyframes slideDown {
@@ -197,6 +272,7 @@ body {
     margin-top: 70px;
     position: relative;
     overflow: hidden;
+    transition: var(--transition);
 }
 
 .hero-content {
@@ -591,6 +667,7 @@ body {
     overflow: hidden;
     transform: translateY(50px) scale(0.9);
     opacity: 0;
+    cursor: pointer;
 }
 
 .section.animate-in .project-card:nth-child(1) {
@@ -704,6 +781,23 @@ body {
 
 .project-card:hover li::before {
     transform: scale(1.2);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 /* ===== Skills Section with Wave Animation ===== */
@@ -948,6 +1042,23 @@ body {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+    .theme-toggle {
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .scroll-robot {
+        left: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .scroll-robot::before {
+        font-size: 1.2rem;
+    }
+
     .hamburger {
         display: flex;
     }
