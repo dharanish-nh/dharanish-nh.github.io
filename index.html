@@ -4,15 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dharanish NH - Robotics & Software Engineer</title>
+    <meta name="description" content="Portfolio of Dharanish NH, a Robotics & Software Engineer specialising in autonomous navigation, computer vision, and robotics. MS in Electrical Engineering from the University of Twente.">
+    <link rel="canonical" href="https://dharanish-nh.github.io/">
+    <meta property="og:title" content="Dharanish NH - Robotics & Software Engineer">
+    <meta property="og:description" content="Robotics & Software Engineer specialising in autonomous navigation, computer vision, and robotics development.">
+    <meta property="og:url" content="https://dharanish-nh.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dharanish NH - Robotics & Software Engineer">
+    <meta name="twitter:description" content="Robotics & Software Engineer specialising in autonomous navigation, computer vision, and robotics development.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dharanish NH",
+      "url": "https://dharanish-nh.github.io",
+      "email": "n.h.dharnish1996@gmail.com",
+      "jobTitle": "Robotics & Software Engineer",
+      "alumniOf": "University of Twente",
+      "sameAs": [
+        "https://www.linkedin.com/in/dharanish-nh/",
+        "https://github.com/dharanish-nh"
+      ]
+    }
+    </script>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>Dharanish NH</h2>
+                <span class="nav-brand-title">Dharanish NH</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
@@ -25,7 +53,7 @@
             <button class="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-sun"></i>
             </button>
-            <div class="hamburger">
+            <div class="hamburger" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -40,22 +68,22 @@
                 <p class="hero-subtitle">Robotics & Software Engineer</p>
                 <p class="hero-description">MS in Electrical Engineering (Robotics and Mechatronics) with expertise in autonomous navigation, computer vision, and robotics development</p>
                 <div class="hero-contact">
-                    <a href="tel:+310617674020" class="contact-item">
-                        <i class="fas fa-phone"></i>
+                    <a href="tel:+310617674020" class="contact-item" aria-label="Call +31 0617674020">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
                         +31 0617674020
                     </a>
-                    <a href="mailto:n.h.dharnish1996@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:n.h.dharnish1996@gmail.com" class="contact-item" aria-label="Email n.h.dharnish1996@gmail.com">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                         n.h.dharnish1996@gmail.com
                     </a>
                 </div>
                 <div class="hero-links">
-                    <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                         LinkedIn
                     </a>
-                    <a href="https://github.com/dharanish-nh" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/dharanish-nh" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                         GitHub
                     </a>
                 </div>
@@ -229,12 +257,12 @@
                             <i class="fas fa-envelope"></i>
                             <span>Email Me</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank" class="contact-method">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/dharanish-nh/" target="_blank" rel="noopener noreferrer" class="contact-method">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/dharanish-nh" target="_blank" class="contact-method">
-                            <i class="fab fa-github"></i>
+                        <a href="https://github.com/dharanish-nh" target="_blank" rel="noopener noreferrer" class="contact-method">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                             <span>GitHub</span>
                         </a>
                     </div>
@@ -245,7 +273,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Dharanish NH. All rights reserved.</p>
+            <p>&copy; <span id="footer-year"></span> Dharanish NH. All rights reserved.</p>
         </div>
     </footer>
 
@@ -254,8 +282,10 @@
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        // Respect saved preference, otherwise follow OS setting
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = savedTheme || (systemDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', currentTheme);
         
         // Update icon based on current theme
@@ -287,9 +317,17 @@
         const navMenu = document.querySelector('.nav-menu');
 
         if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
+            const toggleMenu = () => {
+                const isOpen = navMenu.classList.toggle('active');
                 hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', isOpen);
+            };
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) toggleMenu();
             });
         }
 
@@ -313,6 +351,7 @@
                 if (hamburger && navMenu) {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
                 }
             });
         });
@@ -460,6 +499,9 @@
                 e.stopPropagation();
             });
         });
+
+        // Dynamic copyright year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

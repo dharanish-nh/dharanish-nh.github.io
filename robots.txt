@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dharanish-nh.github.io/sitemap.xml

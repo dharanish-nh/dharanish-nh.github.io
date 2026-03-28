@@ -4,179 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Care Robot Navigation - Dharanish NH</title>
+    <meta name="description" content="Master's thesis project on social-aware navigation for care robots, achieving 45% improvement in social acceptance through proxemics-based path planning.">
+    <link rel="canonical" href="https://dharanish-nh.github.io/care-robot-navigation.html">
+    <meta property="og:title" content="Care Robot Navigation - Dharanish NH">
+    <meta property="og:description" content="Social-aware navigation for care robots using proxemics theory and ROS2, achieving 45% improvement in social acceptance.">
+    <meta property="og:url" content="https://dharanish-nh.github.io/care-robot-navigation.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Care Robot Navigation - Dharanish NH">
+    <meta name="twitter:description" content="Social-aware navigation for care robots using proxemics theory and ROS2, achieving 45% improvement in social acceptance.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .project-hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            padding: 8rem 0 4rem;
-            text-align: center;
-            margin-top: 70px;
-        }
-        
-        .project-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .project-hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-        
-        .back-button {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 1000;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-        
-        .back-button:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-        }
-        
-        .project-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 1rem;
-        }
-        
-        .project-section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--bg-primary);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-        }
-        
-        .project-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-        
-        .project-section h3 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .project-section p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-        
-        .project-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .project-section li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        
-        .project-section li::before {
-            content: '🤖';
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .tech-tag {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--primary-color);
-            margin: 2rem 0;
-            border: 2px dashed var(--border-color);
-        }
-        
-        .project-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .metric-card {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-        
-        .metric-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: block;
-        }
-        
-        .metric-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-    </style>
 </head>
 <body>
-    <!-- Back Button -->
-    <button class="back-button" onclick="window.close()" aria-label="Go back">
-        <i class="fas fa-arrow-left"></i>
+    <button class="back-button" aria-label="Go back to portfolio">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
     </button>
 
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>Dharanish NH</h2>
+                <span class="nav-brand-title">Dharanish NH</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -185,7 +38,7 @@
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <button class="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-sun"></i>
+                <i class="fas fa-sun" aria-hidden="true"></i>
             </button>
         </div>
     </nav>
@@ -199,20 +52,20 @@
 
     <main class="project-content">
         <div class="project-section">
-            <h2><i class="fas fa-bullseye"></i> Project Overview</h2>
+            <h2><i class="fas fa-bullseye" aria-hidden="true"></i> Project Overview</h2>
             <p>This master's thesis project focused on developing an advanced autonomous navigation system for ROSE (Robot for Social Engagement), a care robot designed to assist in healthcare facilities. The primary challenge was creating a navigation system that not only avoids obstacles but also respects human social norms and personal space preferences.</p>
-            
-            <div class="project-image">
-                <i class="fas fa-robot"></i>
+
+            <div class="project-image" role="img" aria-label="Care robot navigation illustration">
+                <i class="fas fa-robot" aria-hidden="true"></i>
             </div>
-            
+
             <h3>Problem Statement</h3>
             <p>Traditional robot navigation systems prioritize efficiency and obstacle avoidance but often fail to consider social acceptability. In healthcare environments, robots need to navigate in a manner that feels natural and comfortable to patients, staff, and visitors.</p>
         </div>
 
         <div class="project-section">
-            <h2><i class="fas fa-cogs"></i> Technical Implementation</h2>
-            
+            <h2><i class="fas fa-cogs" aria-hidden="true"></i> Technical Implementation</h2>
+
             <h3>Core Technologies</h3>
             <div class="tech-stack">
                 <span class="tech-tag">ROS2</span>
@@ -224,7 +77,7 @@
                 <span class="tech-tag">Proxemics Theory</span>
                 <span class="tech-tag">Social Robotics</span>
             </div>
-            
+
             <h3>Key Features Developed</h3>
             <ul>
                 <li>Social-aware path planning algorithms that respect personal space zones</li>
@@ -237,8 +90,8 @@
         </div>
 
         <div class="project-section">
-            <h2><i class="fas fa-chart-line"></i> Results & Impact</h2>
-            
+            <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Results & Impact</h2>
+
             <div class="project-metrics">
                 <div class="metric-card">
                     <span class="metric-number">45%</span>
@@ -257,7 +110,7 @@
                     <div class="metric-label">Navigation Success Rate</div>
                 </div>
             </div>
-            
+
             <h3>Research Outcomes</h3>
             <ul>
                 <li>Developed novel algorithms that significantly improved social acceptance of robot navigation</li>
@@ -269,8 +122,8 @@
         </div>
 
         <div class="project-section">
-            <h2><i class="fas fa-lightbulb"></i> Innovation & Challenges</h2>
-            
+            <h2><i class="fas fa-lightbulb" aria-hidden="true"></i> Innovation & Challenges</h2>
+
             <h3>Novel Contributions</h3>
             <ul>
                 <li>Integration of proxemics theory with practical robot navigation</li>
@@ -279,7 +132,7 @@
                 <li>Culturally-aware navigation parameters</li>
                 <li>Scalable architecture for different types of care robots</li>
             </ul>
-            
+
             <h3>Technical Challenges Overcome</h3>
             <ul>
                 <li>Balancing navigation efficiency with social acceptability</li>
@@ -291,12 +144,12 @@
         </div>
 
         <div class="project-section">
-            <h2><i class="fas fa-graduation-cap"></i> Academic Context</h2>
+            <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Academic Context</h2>
             <p><strong>Institution:</strong> University of Twente, Netherlands</p>
             <p><strong>Duration:</strong> April 2021 - October 2023</p>
             <p><strong>Supervisor:</strong> Heemskerk Innovative Technology, Delft</p>
             <p><strong>Degree:</strong> MS in Electrical Engineering (Robotics and Mechatronics)</p>
-            
+
             <h3>Research Methodology</h3>
             <ul>
                 <li>Literature review of social robotics and proxemics research</li>
@@ -310,42 +163,29 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Dharanish NH. All rights reserved.</p>
+            <p>&copy; <span id="footer-year"></span> Dharanish NH. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Theme toggle functionality
+        // Theme: respect saved preference, otherwise follow OS setting
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = savedTheme || (systemDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', currentTheme);
-        
-        // Update icon based on current theme
-        if (currentTheme === 'dark') {
-            themeIcon.className = 'fas fa-moon';
-        } else {
-            themeIcon.className = 'fas fa-sun';
-        }
-        
+        themeIcon.className = currentTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
         themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // Update icon
-            if (newTheme === 'dark') {
-                themeIcon.className = 'fas fa-moon';
-            } else {
-                themeIcon.className = 'fas fa-sun';
-            }
+            const active = document.documentElement.getAttribute('data-theme');
+            const next = active === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.className = next === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         });
 
-        // Back button functionality
+        // Back button
         document.querySelector('.back-button').addEventListener('click', () => {
             if (window.history.length > 1) {
                 window.history.back();
@@ -354,7 +194,7 @@
             }
         });
 
-        // Smooth scroll animations
+        // Scroll reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -370,6 +210,9 @@
             section.style.transition = 'all 0.6s ease-out';
             observer.observe(section);
         });
+
+        // Dynamic year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
