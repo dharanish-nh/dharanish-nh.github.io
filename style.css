@@ -1,46 +1,46 @@
-/* ===== CSS Variables for Light/Dark Mode ===== */
+/* ===== CSS Variables — Robotics Theme ===== */
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary-color: #64748b;
-    --accent-color: #f59e0b;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-light: #94a3b8;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
-    --border-color: #e2e8f0;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --primary-color: #0284C7;
+    --primary-dark: #0369A1;
+    --secondary-color: #475569;
+    --accent-color: #059669;
+    --text-primary: #0C1A2E;
+    --text-secondary: #334155;
+    --text-light: #64748b;
+    --bg-primary: #F8FAFF;
+    --bg-secondary: #EFF6FF;
+    --bg-tertiary: #DBEAFE;
+    --border-color: #BFDBFE;
+    --glass-bg: rgba(248, 250, 255, 0.15);
+    --glass-border: rgba(2, 132, 199, 0.2);
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow-glass: 0 8px 32px 0 rgba(2, 132, 199, 0.15);
     --border-radius: 0.5rem;
     --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --blur: blur(10px);
 }
 
-/* Dark Mode Variables - True Black Theme */
+/* Dark Mode — Deep Space Robotics */
 [data-theme="dark"] {
-    --primary-color: #3b82f6;
-    --primary-dark: #2563eb;
+    --primary-color: #38BDF8;
+    --primary-dark: #0EA5E9;
     --secondary-color: #94a3b8;
-    --accent-color: #fbbf24;
-    --text-primary: #ffffff;
-    --text-secondary: #e2e8f0;
-    --text-light: #cbd5e1;
-    --bg-primary: #000000;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1a1a1a;
-    --border-color: #222222;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-color: #34D399;
+    --text-primary: #E2F0FF;
+    --text-secondary: #93C5FD;
+    --text-light: #4B7BAF;
+    --bg-primary: #020B18;
+    --bg-secondary: #0A1628;
+    --bg-tertiary: #0F2040;
+    --border-color: #1A3A5C;
+    --glass-bg: rgba(2, 11, 24, 0.6);
+    --glass-border: rgba(56, 189, 248, 0.18);
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.6);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.7), 0 4px 6px -4px rgb(0 0 0 / 0.7);
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --shadow-glass: 0 8px 32px 0 rgba(56, 189, 248, 0.1);
 }
 
 /* ===== Base Styles ===== */
@@ -64,7 +64,7 @@ body {
     transition: var(--transition);
 }
 
-/* Glassmorphism background pattern */
+/* Technical grid background */
 body::before {
     content: '';
     position: fixed;
@@ -72,19 +72,23 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    background:
+        linear-gradient(rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 15% 50%, rgba(2, 132, 199, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 85% 20%, rgba(5, 150, 105, 0.07) 0%, transparent 50%);
+    background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%;
     pointer-events: none;
     z-index: -1;
 }
 
 [data-theme="dark"] body::before {
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+    background:
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 20%, rgba(52, 211, 153, 0.06) 0%, transparent 50%);
+    background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%;
 }
 
 .container {
@@ -272,8 +276,9 @@ body::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: 
-        radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    background:
+        radial-gradient(ellipse at 40% 50%, rgba(2, 132, 199, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(5, 150, 105, 0.08) 0%, transparent 50%);
     animation: liquidFlow 15s ease-in-out infinite;
     pointer-events: none;
 }
@@ -308,6 +313,10 @@ body::before {
     transform: translateY(30px);
     animation: fadeInUp 1s ease-out 0.6s forwards;
     position: relative;
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #020B18 0%, #0A1628 60%, #0F2040 100%);
 }
 
 /* Typing Animation for Subtitle */
@@ -530,23 +539,11 @@ body::before {
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.section.animate-in .timeline-item:nth-child(1) {
-    transition-delay: 0.8s;
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.section.animate-in .timeline-item:nth-child(2) {
-    transition-delay: 1.0s;
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.section.animate-in .timeline-item:nth-child(3) {
-    transition-delay: 1.2s;
-    transform: translateX(0);
-    opacity: 1;
-}
+.section.animate-in .timeline-item:nth-child(1) { transition-delay: 0.8s; transform: translateX(0); opacity: 1; }
+.section.animate-in .timeline-item:nth-child(2) { transition-delay: 1.0s; transform: translateX(0); opacity: 1; }
+.section.animate-in .timeline-item:nth-child(3) { transition-delay: 1.2s; transform: translateX(0); opacity: 1; }
+.section.animate-in .timeline-item:nth-child(4) { transition-delay: 1.4s; transform: translateX(0); opacity: 1; }
+.section.animate-in .timeline-item:nth-child(5) { transition-delay: 1.6s; transform: translateX(0); opacity: 1; }
 
 .timeline-item::before {
     content: '';
@@ -856,10 +853,12 @@ body::before {
     backdrop-filter: var(--blur);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.25rem;
+    font-size: 0.82rem;
     font-weight: 500;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    letter-spacing: 0.02em;
     transition: var(--transition);
     transform: scale(0.9);
     opacity: 0;
