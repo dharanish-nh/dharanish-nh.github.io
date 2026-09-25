@@ -40,6 +40,11 @@
             <button class="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-sun" aria-hidden="true"></i>
             </button>
+            <div class="hamburger" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -187,6 +192,22 @@
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
             themeIcon.className = next === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const toggleMenu = () => {
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        };
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) toggleMenu();
         });
 
         // Back button

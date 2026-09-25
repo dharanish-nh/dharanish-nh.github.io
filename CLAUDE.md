@@ -4,7 +4,7 @@ This file describes the codebase structure, conventions, and workflows for AI as
 
 ## Repository Overview
 
-Personal portfolio website for Dharanish NH — a Robotics & Software Engineer. Built as a pure static site with no build toolchain, no dependencies, and no frameworks. Deployed via GitHub Pages.
+Personal portfolio website for Dharanish NH — a Robotics Engineer & 3DCP Operations Lead. Built as a pure static site with no build toolchain, no dependencies, and no frameworks. Deployed via GitHub Pages.
 
 **Live site:** `https://dharanish-nh.github.io`
 
@@ -13,10 +13,14 @@ Personal portfolio website for Dharanish NH — a Robotics & Software Engineer. 
 ```
 dharanish-nh.github.io/
 ├── index.html                  # Main portfolio page (landing/hub)
-├── style.css                   # Single global stylesheet (~1185 lines)
+├── style.css                   # Single global stylesheet (~1550 lines)
 ├── care-robot-navigation.html  # Project detail: Care Robot Navigation
 ├── obstacle-detection.html     # Project detail: Dynamic Obstacle Detection
 ├── product-development.html    # Project detail: IoT/Robotics Portfolio
+├── 404.html                    # GitHub Pages not-found page (small inline <style>)
+├── favicon.svg                 # Site icon
+├── robots.txt                  # Allows all crawlers, points to sitemap
+├── sitemap.xml                 # Lists index + the three project pages
 └── readme.md                   # Minimal readme (just the site URL)
 ```
 
@@ -46,20 +50,28 @@ All styles live in `style.css`. There are no component-level CSS files or CSS mo
 
 ```css
 :root {
-  --primary: #2563eb;
-  --accent: #f59e0b;
-  --bg-primary: #ffffff;
-  --text-primary: #0f172a;
+  --primary-color: #0284C7;
+  --primary-dark: #0369A1;
+  --accent-color: #059669;
+  --bg-primary: #F8FAFF;
+  --text-primary: #0C1A2E;
+  --glass-bg: rgba(248, 250, 255, 0.15);
+  --glass-border: rgba(2, 132, 199, 0.2);
+  --border-radius: 0.5rem;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --blur: blur(10px);
   /* ... */
 }
 
 [data-theme="dark"] {
-  --primary: #3b82f6;
-  --accent: #fbbf24;
-  --bg-primary: #0a0a0a;
+  --primary-color: #38BDF8;
+  --accent-color: #34D399;
+  --bg-primary: #020B18;
   /* ... */
 }
 ```
+
+Other variables: `--secondary-color`, `--text-secondary`, `--text-light`, `--bg-secondary`, `--bg-tertiary`, `--border-color`, `--shadow-sm/md/lg`, `--shadow-glass`.
 
 Always use these variables — never hardcode colors directly in rules.
 
@@ -77,7 +89,7 @@ The site uses named keyframes for reusable animations:
 - `fadeInUp` — scroll-triggered section reveals
 - `liquidFlow`, `liquidBounceIn`, `liquidPopIn` — entrance animations
 - `liquidShine` — hover shine sweep effect
-- `float` — hover float on skill tags
+- `float` — hover float on skill tags (injected from JS in `index.html`, not in `style.css`)
 - `blink` — cursor blink in typing effect
 
 Scroll-triggered animations use the Intersection Observer API (threshold `0.1`), adding the `animate-in` class when elements enter the viewport.
@@ -89,11 +101,12 @@ All JavaScript is inline `<script>` tags at the bottom of each HTML file. There 
 **Key patterns used:**
 
 1. **Theme toggle** — reads/writes `localStorage` key `theme`, applies `data-theme` attribute on `<html>`
-2. **Mobile nav** — toggles `.active` class on `.hamburger` and `.nav-menu`
+2. **Mobile nav** — below 768px the `.nav-menu` is off-screen; the `.hamburger` button (present on `index.html` and every project page) toggles `.active` on both, updates `aria-expanded`, and closes on Escape
 3. **Smooth scroll** — `scrollIntoView({ behavior: 'smooth' })` on nav link clicks
 4. **Intersection Observer** — triggers CSS class additions for scroll animations
-5. **Parallax** — `requestAnimationFrame`-throttled scroll handler adjusts hero `transform`
-6. **Navbar blur** — scroll position drives dynamic `backdrop-filter` intensity
+5. **Parallax** — scroll handler adjusts hero `transform` (index only)
+6. **Navbar blur** — `requestAnimationFrame`-throttled scroll handler drives dynamic `backdrop-filter` intensity (index only)
+7. **Typing effect** — hero subtitle is typed out character by character (index only)
 
 Keep JavaScript minimal and side-effect free. Avoid global variable pollution — prefer `const`/`let` inside event listeners and IIFE wrappers.
 
@@ -102,8 +115,8 @@ Keep JavaScript minimal and side-effect free. Avoid global variable pollution �
 - Use semantic elements: `<nav>`, `<section>`, `<article>`, `<header>`, `<footer>`, `<main>`
 - Each `<section>` has an `id` used for anchor navigation (e.g. `id="about"`, `id="projects"`)
 - Navigation links use `href="#section-id"` for same-page sections
-- Project detail pages open via `target="_blank"` from `index.html`
-- Project detail pages include a back button that calls `window.close()`
+- Project detail pages open in a new tab from `index.html`: each `.project-card` contains a `.project-link` with `target="_blank"`, and `.project-link::after` stretches over the card so the whole card is clickable (no `onclick` handlers)
+- Project detail pages include a `.back-button` that calls `history.back()`, falling back to `index.html` when there is no history (e.g. opened in a new tab)
 - Add `aria-label` on icon-only buttons and links for accessibility
 
 ## Page Structure Pattern
@@ -127,9 +140,11 @@ All pages share the same structure:
 ```
 
 Project detail pages follow a consistent internal structure:
-1. Back button
-2. Hero section (title, subtitle, tech tags, metrics)
-3. Content sections (overview, implementation, results, innovation)
+1. Back button (`.back-button`)
+2. Navbar with links back to `index.html` sections, theme toggle and hamburger
+3. Hero (`<header class="project-hero">`: title + one-line subtitle)
+4. `<main class="project-content">` with `.project-section` blocks (overview, technical implementation with `.tech-stack`, results with `.project-metrics`/`.metric-card`, innovation, context)
+5. Footer and inline script (theme toggle, mobile menu, back button, scroll reveal, footer year)
 
 ## Content & Data
 
@@ -140,6 +155,7 @@ There is no CMS, database, or data layer. All content is hard-coded in HTML. Whe
 - Email: n.h.dharnish1996@gmail.com
 - LinkedIn: `/dharanish-nh/`
 - GitHub: `/dharanish-nh`
+- Phone: +31 6 17674020 (`tel:+31617674020`)
 - Location: Netherlands
 
 ## Development Workflow
