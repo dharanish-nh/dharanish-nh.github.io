@@ -68,9 +68,9 @@
                 <p class="hero-subtitle">Robotics Engineer & 3DCP Operations Lead</p>
                 <p class="hero-description">Leading 3D concrete printing operations at Zavhy, Netherlands. MS in Electrical Engineering (Robotics & Mechatronics) with expertise in autonomous navigation, computer vision, and robotic systems integration.</p>
                 <div class="hero-contact">
-                    <a href="tel:+310617674020" class="contact-item" aria-label="Call +31 0617674020">
+                    <a href="tel:+31617674020" class="contact-item" aria-label="Call +31 6 17674020">
                         <i class="fas fa-phone" aria-hidden="true"></i>
-                        +31 0617674020
+                        +31 6 17674020
                     </a>
                     <a href="mailto:n.h.dharnish1996@gmail.com" class="contact-item" aria-label="Email n.h.dharnish1996@gmail.com">
                         <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -210,29 +210,29 @@
             <div class="container">
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card" onclick="window.open('care-robot-navigation.html', '_blank')">
+                    <div class="project-card">
                         <div class="project-header">
                             <h3>Improving Autonomous Navigation of Care Robot by Following Social Norms</h3>
                             <i class="fas fa-robot" aria-hidden="true"></i>
                         </div>
                         <p class="project-summary">Developed an autonomous navigation method for the care robot (ROSE) in dynamic indoor environments, ensuring adherence to social norms and respecting the proxemics of individuals.</p>
-                        <a href="care-robot-navigation.html" class="project-link">View Details</a>
+                        <a href="care-robot-navigation.html" target="_blank" rel="noopener noreferrer" class="project-link">View Details</a>
                     </div>
-                    <div class="project-card" onclick="window.open('obstacle-detection.html', '_blank')">
+                    <div class="project-card">
                         <div class="project-header">
                             <h3>Dynamic Obstacle Detection and Avoidance</h3>
                             <i class="fas fa-eye" aria-hidden="true"></i>
                         </div>
                         <p class="project-summary">Designed, implemented and tested a human tracking algorithm in different lighting and occlusion scenarios utilising an RGBD camera. Deployed on Nvidia Jetson for real-time processing.</p>
-                        <a href="obstacle-detection.html" class="project-link">View Details</a>
+                        <a href="obstacle-detection.html" target="_blank" rel="noopener noreferrer" class="project-link">View Details</a>
                     </div>
-                    <div class="project-card" onclick="window.open('product-development.html', '_blank')">
+                    <div class="project-card">
                         <div class="project-header">
                             <h3>Product Development</h3>
                             <i class="fas fa-cogs" aria-hidden="true"></i>
                         </div>
                         <p class="project-summary">Led the development of diverse robots (Painting, Surgical, Sorting) and IoT projects (Health Monitor, Construction Helmet, Smart Railways) using Arduino, MSP430, and Raspberry Pi.</p>
-                        <a href="product-development.html" class="project-link">View Details</a>
+                        <a href="product-development.html" target="_blank" rel="noopener noreferrer" class="project-link">View Details</a>
                     </div>
                 </div>
             </div>
@@ -523,13 +523,6 @@
                     firstSection.classList.add('animate-in');
                 }
             }, 500);
-        });
-
-        // Project card click prevention for links
-        document.querySelectorAll('.project-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
         });
 
         // Dynamic copyright year
