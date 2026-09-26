@@ -14,13 +14,14 @@ Personal portfolio website for Dharanish NH — a Robotics Engineer & 3DCP Opera
 dharanish-nh.github.io/
 ├── index.html                  # Main portfolio page (landing/hub)
 ├── style.css                   # Single global stylesheet (~1550 lines)
+├── 3dcp-technology.html        # Project detail: Improving 3DCP Technology (Zavhy)
 ├── care-robot-navigation.html  # Project detail: Care Robot Navigation
 ├── obstacle-detection.html     # Project detail: Dynamic Obstacle Detection
 ├── product-development.html    # Project detail: IoT/Robotics Portfolio
 ├── 404.html                    # GitHub Pages not-found page (small inline <style>)
 ├── favicon.svg                 # Site icon
 ├── robots.txt                  # Allows all crawlers, points to sitemap
-├── sitemap.xml                 # Lists index + the three project pages
+├── sitemap.xml                 # Lists index + the four project pages
 └── readme.md                   # Minimal readme (just the site URL)
 ```
 
@@ -157,6 +158,8 @@ There is no CMS, database, or data layer. All content is hard-coded in HTML. Whe
 - GitHub: `/dharanish-nh`
 - Phone: +31 6 17674020 (`tel:+31617674020`)
 - Location: Netherlands
+
+All site content (experience, projects, skills, publications, metrics) must come from the owner's CV. Do not invent metrics, technologies or results.
 
 ## Development Workflow
 

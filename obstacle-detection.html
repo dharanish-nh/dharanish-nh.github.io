@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Obstacle Detection - Dharanish NH</title>
-    <meta name="description" content="Real-time dynamic obstacle detection and avoidance for autonomous floor-scrubbing robots using YOLO and RGBD cameras, achieving 94% accuracy at 30 FPS on embedded hardware.">
+    <meta name="description" content="Human detection and tracking for an autonomous floor-scrubbing robot using an RGB-D camera, deployed on NVIDIA Jetson for real-time execution.">
     <link rel="canonical" href="https://dharanish-nh.github.io/obstacle-detection.html">
     <meta property="og:title" content="Dynamic Obstacle Detection - Dharanish NH">
-    <meta property="og:description" content="Real-time human detection and tracking for autonomous robots using YOLO and RGBD cameras, achieving 94% detection accuracy at 30 FPS.">
+    <meta property="og:description" content="Human detection and tracking for an autonomous floor-scrubbing robot using an RGB-D camera, deployed on NVIDIA Jetson for real-time execution.">
     <meta property="og:url" content="https://dharanish-nh.github.io/obstacle-detection.html">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Dynamic Obstacle Detection - Dharanish NH">
-    <meta name="twitter:description" content="Real-time human detection and tracking for autonomous robots using YOLO and RGBD cameras, achieving 94% detection accuracy at 30 FPS.">
+    <meta name="twitter:description" content="Human detection and tracking for an autonomous floor-scrubbing robot using an RGB-D camera, deployed on NVIDIA Jetson for real-time execution.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,8 +50,8 @@
 
     <header class="project-hero">
         <div class="container">
-            <h1>Dynamic Obstacle Detection and Avoidance</h1>
-            <p>Human detection and tracking system for an autonomous floor-scrubbing robot using an RGBD camera, deployed on Nvidia Jetson for real-time processing</p>
+            <h1>Dynamic Obstacle Detection and Avoidance for a Floor-Scrubbing Robot</h1>
+            <p>Human detection and tracking for an autonomous floor-scrubbing robot using an RGB-D camera, deployed on NVIDIA Jetson for real-time execution</p>
         </div>
     </header>
 
@@ -59,180 +59,31 @@
         <div class="project-section">
             <h2><i class="fas fa-bullseye" aria-hidden="true"></i> Project Overview</h2>
             <ul>
-                <li>Analysed various human detection methods for an autonomous floor-scrubbing robot</li>
-                <li>Designed, implemented and tested a human tracking algorithm in different lighting and occlusion scenarios utilising an RGBD camera</li>
-                <li>Deployed the project on Nvidia Jetson for real-time processing and execution</li>
+                <li>Evaluated various human detection methods and implemented a robust tracking algorithm using an RGB-D camera</li>
+                <li>Designed and tested detection in challenging conditions including varying lighting and partial occlusion</li>
+                <li>Deployed the system on NVIDIA Jetson for real-time execution and control</li>
             </ul>
-
             <div class="project-image" role="img" aria-label="Obstacle detection system illustration">
                 <i class="fas fa-eye" aria-hidden="true"></i>
             </div>
-
-            <h3>Problem Statement</h3>
-            <p>Autonomous cleaning robots operating in public spaces face the challenge of safely navigating around humans while maintaining cleaning efficiency. The system needed to handle various scenarios including poor lighting, partial occlusions, and different human poses and movements.</p>
         </div>
 
         <div class="project-section">
             <h2><i class="fas fa-cogs" aria-hidden="true"></i> Technical Implementation</h2>
-
-            <h3>Core Technologies</h3>
             <div class="tech-stack">
-                <span class="tech-tag">OpenCV</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">YOLO</span>
-                <span class="tech-tag">RGBD Camera</span>
-                <span class="tech-tag">Intel RealSense</span>
-                <span class="tech-tag">Nvidia Jetson</span>
-                <span class="tech-tag">TensorFlow</span>
-                <span class="tech-tag">Computer Vision</span>
-            </div>
-
-            <h3>Algorithm Pipeline</h3>
-            <div class="algorithm-flow">
-                <div class="flow-step">
-                    <div class="step-icon">📹</div>
-                    <div class="step-title">Data Acquisition</div>
-                    <div class="step-description">RGBD camera captures color and depth information in real-time</div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-icon">🔍</div>
-                    <div class="step-title">Detection</div>
-                    <div class="step-description">YOLO-based human detection with confidence filtering</div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-icon">📊</div>
-                    <div class="step-title">Depth Analysis</div>
-                    <div class="step-description">3D position estimation using depth data fusion</div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-icon">🎯</div>
-                    <div class="step-title">Tracking</div>
-                    <div class="step-description">Kalman filter-based multi-object tracking system</div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-icon">🚀</div>
-                    <div class="step-title">Path Planning</div>
-                    <div class="step-description">Dynamic obstacle avoidance and safe navigation</div>
-                </div>
+                <span class="tech-tag">RGB-D Camera</span>
+                <span class="tech-tag">NVIDIA Jetson</span>
+                <span class="tech-tag">Human Detection</span>
+                <span class="tech-tag">People Tracking</span>
+                <span class="tech-tag">Obstacle Avoidance</span>
             </div>
         </div>
 
         <div class="project-section">
-            <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Results & Performance</h2>
-
-            <div class="project-metrics">
-                <div class="metric-card">
-                    <span class="metric-number">94%</span>
-                    <div class="metric-label">Detection Accuracy</div>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-number">30</span>
-                    <div class="metric-label">FPS Real-time Processing</div>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-number">15</span>
-                    <div class="metric-label">Metres Detection Range</div>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-number">98%</span>
-                    <div class="metric-label">Collision Avoidance Success</div>
-                </div>
-            </div>
-
-            <h3>Key Achievements</h3>
-            <ul>
-                <li>Developed robust human detection system with 94% accuracy across various conditions</li>
-                <li>Implemented real-time tracking algorithm capable of handling multiple simultaneous targets</li>
-                <li>Successfully deployed system on Nvidia Jetson for edge computing</li>
-                <li>Achieved consistent performance in challenging lighting conditions</li>
-                <li>Reduced false positive detections by 60% compared to baseline methods</li>
-                <li>Optimized processing pipeline for resource-constrained embedded systems</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h2><i class="fas fa-lightbulb" aria-hidden="true"></i> Innovation & Technical Details</h2>
-
-            <h3>Novel Contributions</h3>
-            <ul>
-                <li>Fusion of RGB and depth data for improved detection reliability</li>
-                <li>Adaptive threshold algorithms for varying lighting conditions</li>
-                <li>Multi-scale detection approach for handling different distances</li>
-                <li>Custom tracking algorithm optimized for human movement patterns</li>
-                <li>Real-time performance optimization for embedded deployment</li>
-            </ul>
-
-            <h3>Technical Challenges Solved</h3>
-            <ul>
-                <li>Handling partial occlusions and crowded environments</li>
-                <li>Maintaining accuracy in low-light and bright lighting conditions</li>
-                <li>Real-time processing constraints on embedded hardware</li>
-                <li>Distinguishing between humans and other moving objects</li>
-                <li>Minimizing computational overhead while maximizing detection accuracy</li>
-                <li>Dealing with camera motion and vibrations during robot movement</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h2><i class="fas fa-microscope" aria-hidden="true"></i> Testing & Validation</h2>
-
-            <h3>Testing Scenarios</h3>
-            <ul>
-                <li>Indoor office environments with varying foot traffic</li>
-                <li>Challenging lighting conditions (bright sunlight, dim areas)</li>
-                <li>Partial occlusion scenarios with furniture and obstacles</li>
-                <li>Multiple people detection and tracking simultaneously</li>
-                <li>Different human poses and movement patterns</li>
-                <li>Long-duration operation testing for system stability</li>
-            </ul>
-
-            <h3>Validation Methodology</h3>
-            <ul>
-                <li>Ground truth data collection with manual annotation</li>
-                <li>Statistical analysis of detection accuracy and tracking performance</li>
-                <li>Computational performance benchmarking on target hardware</li>
-                <li>Real-world deployment testing in commercial environments</li>
-                <li>Comparative analysis with existing detection methods</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Project Context</h2>
+            <h2><i class="fas fa-building" aria-hidden="true"></i> Professional Context</h2>
             <p><strong>Company:</strong> Aziobot, Netherlands</p>
-            <p><strong>Duration:</strong> September 2020 - December 2020</p>
             <p><strong>Role:</strong> Robotics Intern</p>
-            <p><strong>Industry:</strong> Autonomous Cleaning Robotics</p>
-
-            <h3>Learning Outcomes</h3>
-            <ul>
-                <li>Advanced computer vision techniques and implementation</li>
-                <li>Real-time system optimization and embedded computing</li>
-                <li>Industrial robotics development and deployment</li>
-                <li>Performance evaluation and testing methodologies</li>
-                <li>Cross-functional collaboration in product development</li>
-                <li>Understanding of commercial robotics constraints and requirements</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h2><i class="fas fa-rocket" aria-hidden="true"></i> Impact & Future Work</h2>
-
-            <h3>Commercial Impact</h3>
-            <ul>
-                <li>Improved safety and reliability of autonomous cleaning robots</li>
-                <li>Enhanced user confidence in robotic cleaning solutions</li>
-                <li>Reduced operational costs through improved efficiency</li>
-                <li>Foundation for next-generation autonomous cleaning systems</li>
-            </ul>
-
-            <h3>Potential Extensions</h3>
-            <ul>
-                <li>Integration with predictive movement modeling</li>
-                <li>Extension to other types of autonomous robots</li>
-                <li>Implementation of social interaction capabilities</li>
-                <li>Enhanced scene understanding for complex environments</li>
-                <li>Multi-sensor fusion with LIDAR and other sensors</li>
-            </ul>
+            <p><strong>Duration:</strong> September 2020 – December 2020</p>
         </div>
     </main>
 
@@ -300,30 +151,6 @@
             section.style.transform = 'translateY(30px)';
             section.style.transition = 'all 0.6s ease-out';
             observer.observe(section);
-        });
-
-        // Animate flow steps
-        const flowObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.flow-step').forEach((step, index) => {
-                        setTimeout(() => {
-                            step.style.opacity = '1';
-                            step.style.transform = 'translateX(0)';
-                        }, index * 200);
-                    });
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.flow-step').forEach(step => {
-            step.style.opacity = '0';
-            step.style.transform = 'translateX(-30px)';
-            step.style.transition = 'all 0.6s ease-out';
-        });
-
-        document.querySelectorAll('.algorithm-flow').forEach(flow => {
-            flowObserver.observe(flow);
         });
 
         // Dynamic year
